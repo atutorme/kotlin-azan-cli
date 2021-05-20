@@ -9,7 +9,7 @@ To create an executable jar, run the `shadowJar` target.
 The output jar will appear in `build/libs`, at least using IDEA.
 
 To run:
-`java -jar azan-cli-0.1.3-all.jar`
+`java -jar azan-cli-{version}-all.jar`
 
 ## Credit
 This player uses the awesome TinySound library to play audio. This library is a real gem for playing sound on the JVM.  
