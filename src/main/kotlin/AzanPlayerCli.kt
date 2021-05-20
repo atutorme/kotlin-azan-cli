@@ -34,8 +34,10 @@ fun scheduleNextAzan(salatTimes: SalatTimes, timer: Timer, adhan: Music) {
         timerTask {
             println("It's azan time!")
             println("Salat: ${salatTimes.currentSalatTime()}")
-            if (salatTimes.currentSalatTime().first in salatNamesToPlay)
+            if (salatTimes.currentSalatTime().first in salatNamesToPlay) {
+                adhan.rewind()
                 adhan.play(false)
+            }
 
             scheduleNextAzan(SalatTimes(location = salatTimes.location), timer, adhan)
 
