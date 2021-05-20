@@ -1,0 +1,39 @@
+plugins {
+    id 'java'
+    id 'org.jetbrains.kotlin.jvm' version '1.5.0'
+    id 'application'
+    id "com.github.johnrengelman.shadow" version "7.0.0"
+}
+
+group 'com.github.atutorme'
+version '0.1.3'
+
+repositories {
+    mavenCentral()
+    flatDir {
+        dirs 'lib'
+    }
+    maven { url 'https://jitpack.io' }
+}
+
+dependencies {
+    implementation "org.jetbrains.kotlin:kotlin-stdlib"
+    implementation name: "tinysound-1.1.1"
+    implementation 'com.github.atutorme:kotlin-azan:0.1.3'
+
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
+}
+
+test {
+    useJUnitPlatform()
+}
+
+application {
+    // Define the main class for the application.
+    getMainClass().set("AzanPlayerCliKt")
+}
+
+shadowJar {
+    archiveBaseName.set('azan-cli')
+}
