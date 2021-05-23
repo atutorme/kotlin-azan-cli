@@ -18,6 +18,11 @@ fun main() {
 
     val salatTimes = SalatTimes(location = location)
 
+    println("Today's salat times:")
+    println("-------------------------------")
+    salatTimes.salatTimestamps.forEach(::println)
+    println("-------------------------------")
+
     val timer = Timer("Azan Player Cli", false)
 
     TinySound.init()
@@ -29,6 +34,7 @@ fun main() {
 fun scheduleNextAzan(salatTimes: SalatTimes, timer: Timer, adhan: Music) {
     println("Scheduling salat: ${salatTimes.nextSalatTime()}")
     println("in: ${salatTimes.secondsToNextSalat()} seconds")
+    println("-------------------------------")
 
     timer.schedule(
         timerTask {
@@ -38,6 +44,7 @@ fun scheduleNextAzan(salatTimes: SalatTimes, timer: Timer, adhan: Music) {
                 adhan.rewind()
                 adhan.play(false)
             }
+            println("-------------------------------")
 
             scheduleNextAzan(SalatTimes(location = salatTimes.location), timer, adhan)
 
