@@ -6,7 +6,7 @@ plugins {
 }
 
 group 'com.github.atutorme'
-version '0.2.0'
+version '0.3.0'
 
 repositories {
     mavenCentral()
@@ -19,7 +19,7 @@ repositories {
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib"
     implementation name: "tinysound-1.1.1"
-    implementation 'com.github.atutorme:kotlin-azan:0.2.0'
+    implementation 'com.github.atutorme:kotlin-azan:0.3.0'
 
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
