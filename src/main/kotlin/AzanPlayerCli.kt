@@ -40,9 +40,13 @@ fun getAdhan(salatNiceName: String) : Music =
     }
 
 fun playAdhan(salatNiceName: String) {
-    val adhanToPlay = getAdhan(salatNiceName)
-    adhanToPlay.rewind()
-    adhanToPlay.play(false)
+    try {
+        val adhanToPlay = getAdhan(salatNiceName)
+        adhanToPlay.rewind()
+        adhanToPlay.play(false)
+    } catch (e: Exception) {
+        e.printStackTrace()
+    }
 }
 
 fun main() {
