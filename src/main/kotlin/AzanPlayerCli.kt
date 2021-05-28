@@ -22,12 +22,6 @@ lateinit var beep: Music
 
 val r = Random()
 
-fun getAdhan() : Music {
-    val i = r.nextInt() % adhan.size
-    println("Selected adhan: ${adhanFiles[i]}")
-    return adhan[i]
-}
-
 fun getAdhan(salatNiceName: String) : Music =
     when (salatNiceName) {
         !in salatNamesToPlay -> {
@@ -38,7 +32,11 @@ fun getAdhan(salatNiceName: String) : Music =
             println("Selected adhan fajr")
             adhanFajr
         }
-        else -> getAdhan()
+        else -> {
+            val i = r.nextInt() % adhan.size
+            println("Selected adhan: ${adhanFiles[i]}")
+            adhan[i]
+        }
     }
 
 fun playAdhan(salatNiceName: String) {
@@ -51,6 +49,7 @@ fun main() {
     TinySound.init()
     adhan = adhanFiles.map(TinySound::loadMusic)
     adhanFajr = TinySound.loadMusic(adhanFajrFile)
+    beep = TinySound.loadMusic(beepFile)
 
     val location = Location(
         "Brisbane",
