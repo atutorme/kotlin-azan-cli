@@ -33,7 +33,7 @@ fun getAdhan(salatNiceName: String) : Music =
             adhanFajr
         }
         else -> {
-            val i = r.nextInt() % adhan.size
+            val i = r.nextInt(adhan.size)
             println("Selected adhan: ${adhanFiles[i]}")
             adhan[i]
         }
